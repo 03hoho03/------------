@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "http://limnyn.asuscomm.com:54345/:path*"
+    }
+  ]
+}
