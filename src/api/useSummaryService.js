@@ -7,7 +7,7 @@ const useSummaryService = () => {
       console.log(user, url);
       const response = await axiosInstance
         .post(
-          "/youtube_summary/",
+          "/summary/url/",
           {
             email: user?.email,
             url: url,
@@ -22,7 +22,7 @@ const useSummaryService = () => {
     },
     youtubeRecent: async () => {
       const response = await axiosInstance
-        .get("/recent_summary")
+        .get("/summary/recent/")
         .then((res) => res.data.summaries);
       return response;
     },
@@ -45,7 +45,7 @@ const useSummaryService = () => {
     audioSummarize: async (file) => {
       try {
         const response = await axiosInstance
-          .post("/text_summary", file)
+          .post("/summary/text/", file)
           .then((res) => {
             console.log(res);
             return res.data;
