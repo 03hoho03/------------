@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import useSummaryService from "../../api/useSummaryService";
 import { useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
-import { data } from "./dummy";
 import { userAtom } from "../../_state/user";
 
 const MainWrapper = styled.section`
