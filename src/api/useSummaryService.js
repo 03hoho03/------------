@@ -22,7 +22,7 @@ const useSummaryService = () => {
     },
     youtubeRecent: async () => {
       const response = await axiosInstance
-        .get("/summary/recent/")
+        .get("api/summary/recent/")
         .then((res) => res.data.summaries);
       return response;
     },
