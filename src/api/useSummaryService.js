@@ -7,7 +7,7 @@ const useSummaryService = () => {
       console.log(user, url);
       const response = await axiosInstance
         .post(
-          "/summary/url/",
+          "api/summary/url/",
           {
             email: user?.email,
             url: url,
@@ -45,7 +45,7 @@ const useSummaryService = () => {
     audioSummarize: async (file) => {
       try {
         const response = await axiosInstance
-          .post("/summary/text/", file)
+          .post("api/summary/text/", file)
           .then((res) => {
             console.log(res);
             return res.data;
