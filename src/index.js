@@ -8,7 +8,13 @@ import { RecoilRoot } from "recoil";
 import { ThemeProvider } from "styled-components";
 import theme from "./utils/theme";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
