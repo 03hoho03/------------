@@ -12,6 +12,11 @@ jobs:
         
       - name: Check Node v
         run: node -v
+
+      - name: .env setting
+        run: |
+          echo "REACT_APP_BASE_URL=${{ secrets.REACT_APP_BASE_URL }}" >> .env
+          echo "REACT_APP_OPENAI_KEY=${{ secrets.REACT_APP_OPENAI_KEY }}" >> .env
         
       - name: Install Dependencies
         run: npm ci
