@@ -4,7 +4,7 @@ import { axiosOpenAi } from "../utils/axios/axiosOpenAi";
 const useSummaryService = () => {
   return {
     youtubeSummarize: async (user, url) => {
-      const email = user.email ? user.email : "";
+      const email = user?.email ? user.email : "";
       const response = await axiosInstance
         .post(
           "api/summary/url/",
