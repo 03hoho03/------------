@@ -2,13 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const linkType = [
-  {
-    type: "youtube",
-    message: "최근 유튜브 요약본 보러가기",
-    path: "/recent/youtube",
-  },
-];
 const StyledLink = styled(Link)`
   color: red;
   font-size: 14px;
@@ -17,6 +10,15 @@ const StyledLink = styled(Link)`
     text-decoration-line: underline;
   }
 `;
+
+const linkType = [
+  {
+    type: "youtube",
+    message: "최근 유튜브 요약본 보러가기",
+    path: "/recent/youtube",
+  },
+];
+
 const RecentLink = ({ filter }) => {
   const [linkInfo, setLinkInfo] = useState({});
   useEffect(() => {

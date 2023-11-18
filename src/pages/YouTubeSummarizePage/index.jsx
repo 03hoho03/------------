@@ -10,7 +10,6 @@ import { useQuery } from "@tanstack/react-query";
 import RecentLink from "../../components/RecentLink";
 import FormHeader from "../../components/FormHeader";
 import { FadeLoader } from "react-spinners";
-import Button from "../../common/button";
 
 const MainWrapper = styled.section`
   display: flex;
@@ -23,11 +22,6 @@ const MainWrapper = styled.section`
 const YouTubeWrapper = styled.div`
   margin-top: 12px;
 `;
-const type = "youtube";
-const formHeaderInfo = {
-  title: "유튜브 요약",
-  description: "긴 유튜브 영상을 중요한 키워드만 요약해보세요",
-};
 const ResultWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -35,6 +29,12 @@ const ResultWrapper = styled.div`
   width: 100%;
   min-height: 400px;
 `;
+
+const type = "youtube";
+const formHeaderInfo = {
+  title: "유튜브 요약",
+  description: "긴 유튜브 영상을 중요한 키워드만 요약해보세요",
+};
 
 const YouTubeSummarizePage = () => {
   const { title, description } = formHeaderInfo;
