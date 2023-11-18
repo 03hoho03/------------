@@ -15,6 +15,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
 import { getRefreshToken } from "./utils/axios/axiosInstance";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+import MySummaryPage from "./pages/MySummaryPage";
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -64,6 +66,9 @@ function App() {
         <Route element={<NotAuthRoutes />}>
           <Route index path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SingupPage />} />
+        </Route>
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/summary/:userId" element={<MySummaryPage />} />
         </Route>
       </Route>
     </Routes>
