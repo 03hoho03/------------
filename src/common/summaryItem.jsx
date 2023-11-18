@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { shortenWords } from "../../../utils/cutWords";
 import { useNavigate } from "react-router-dom";
 
 const MainWrapper = styled.section`
@@ -31,6 +30,20 @@ const ContentWrapper = styled.div`
   border: none;
   border-radius: 20px;
 `;
+const ThumnailContainer = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: calc(100% / 16 * 9);
+`;
+const Thumnail = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+`;
 const VideoTitle = styled.div`
   flex: 1;
   font-size: 16px;
@@ -56,7 +69,7 @@ const ViewSummaryBtn = styled.button`
     background-color: orange;
   }
 `;
-const RecentItem = ({ item }) => {
+const SummaryItem = ({ item }) => {
   const navigate = useNavigate();
   const onHandleClick = () => {
     navigate(`/recent/youtube/${item.video_id}`, {
@@ -69,7 +82,9 @@ const RecentItem = ({ item }) => {
   return (
     <MainWrapper onClick={onHandleClick}>
       <ContentWrapper>
-        <img src={item.thumbnail} alt="thumbnail" />
+        <ThumnailContainer>
+          <Thumnail src={item.thumbnail} alt="thumbnail" />
+        </ThumnailContainer>
         <VideoTitle>{item.title}</VideoTitle>
         <VideoChannelName>{item.channel_name}</VideoChannelName>
         {/* <VideoSummaryWrapper>
@@ -81,4 +96,4 @@ const RecentItem = ({ item }) => {
   );
 };
 
-export default RecentItem;
+export default SummaryItem;

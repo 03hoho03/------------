@@ -29,7 +29,7 @@ const NavigationBtn = styled.button`
 const Navigation = () => {
   const navigate = useNavigate();
   const userService = useUserService();
-  const { isAuth } = useRecoilValue(userAtom);
+  const { user, isAuth } = useRecoilValue(userAtom);
 
   const HandleNavBtn = (path) => {
     navigate(path);
@@ -50,7 +50,9 @@ const Navigation = () => {
       <ButtonWrapper>
         {isAuth ? (
           <div>
-            <NavigationBtn onClick={() => HandleNavBtn("/")}>
+            <NavigationBtn
+              onClick={() => HandleNavBtn(`summary/${user.email}`)}
+            >
               내 요약
             </NavigationBtn>
             <NavigationBtn onClick={HandleLogout}>로그아웃</NavigationBtn>
