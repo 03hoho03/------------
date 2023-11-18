@@ -1,5 +1,5 @@
 import React from "react";
-import RecentList from "../RecentList";
+import SummaryList from "../../../common/summaryList";
 import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
 import useSummaryService from "../../../api/useSummaryService";
@@ -18,7 +18,7 @@ const YouTubeRecent = () => {
 
   return (
     <MainWrapper>
-      {isFetching ? <p>로딩중...</p> : <RecentList recentList={data} />}
+      {isFetching ? <p>로딩중...</p> : <SummaryList summaryList={data} />}
     </MainWrapper>
   );
 };

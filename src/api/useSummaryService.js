@@ -4,20 +4,19 @@ import { axiosOpenAi } from "../utils/axios/axiosOpenAi";
 const useSummaryService = () => {
   return {
     youtubeSummarize: async (user, url) => {
-      console.log(user, url);
+      const email = user.email ? user.email : "";
       const response = await axiosInstance
         .post(
           "api/summary/url/",
           {
-            email: user?.email,
-            url: url,
+            email,
+            url,
           },
           {
             timeout: 50000,
           }
         )
         .then((res) => res.data);
-      console.log(response);
       return response;
     },
     youtubeRecent: async () => {
