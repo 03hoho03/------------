@@ -3,31 +3,35 @@ import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { userAtom } from "../../_state/user";
 import SummarizeResult from "../../components/SummarizeResult";
-import YouTube from "react-youtube";
 import SummarizeInputForm from "../../components/SummarizeInputForm";
 import useSummaryService from "../../api/useSummaryService";
 import { useQuery } from "@tanstack/react-query";
 import RecentLink from "../../components/RecentLink";
 import FormHeader from "../../components/FormHeader";
 import { FadeLoader } from "react-spinners";
+import Youtube from "../../common/Youtube";
 
 const MainWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 120px;
   width: 100%;
   padding: 0 24px;
 `;
-const YouTubeWrapper = styled.div`
-  margin-top: 12px;
+const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 120px 24px 24px;
 `;
 const ResultWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 400px;
+  max-width: 800px;
+  margin: 0 auto;
 `;
 
 const type = "youtube";
@@ -51,34 +55,19 @@ const YouTubeSummarizePage = () => {
 
   return (
     <MainWrapper>
-      <FormHeader title={title} description={description} />
-      <SummarizeInputForm
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-        setVideoId={setVideoId}
-        isFetching={isFetching}
-        refetch={refetch}
-      />
-      <RecentLink filter={type} />
-      {videoId && (
-        <YouTubeWrapper>
-          <YouTube
-            videoId={videoId}
-            opts={{
-              width: "480px",
-              height: "360px",
-              playerVars: {
-                autoplay: 0, //자동 재생 여부
-                loop: 1, //반복 재생
-              },
-            }}
-            onReady={(e) => {
-              e.target.pauseVideo(); //소리 끔
-            }}
-          />
-        </YouTubeWrapper>
-      )}
+      <InputWrapper>
+        <FormHeader title={title} description={description} />
+        <SummarizeInputForm
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+          setVideoId={setVideoId}
+          isFetching={isFetching}
+          refetch={refetch}
+        />
+        <RecentLink filter={type} />
+      </InputWrapper>
       <ResultWrapper>
+        {videoId && <Youtube videoId={videoId} />}
         {isFetching ? (
           <FadeLoader />
         ) : (
