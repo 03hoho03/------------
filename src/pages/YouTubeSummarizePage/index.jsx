@@ -50,7 +50,6 @@ const YouTubeSummarizePage = () => {
     queryKey: ["summarize"],
     queryFn: () => summaryService.youtubeSummarize(user, inputValue),
     enabled: false,
-    retry: false,
   });
 
   return (

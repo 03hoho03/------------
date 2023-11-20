@@ -27,32 +27,25 @@ const useSummaryService = () => {
     },
     getTextFromWhisper: async (file, language = "en") => {
       console.log(file, language);
-      try {
-        const formData = new FormData();
-        formData.append("model", "whisper-1");
-        formData.append("language", language);
-        formData.append("file", file);
-        const response = await axiosOpenAi.post("", formData).then((res) => {
-          console.log(res);
+      const formData = new FormData();
+      formData.append("model", "whisper-1");
+      formData.append("language", language);
+      formData.append("file", file);
+      const response = await axiosOpenAi.post("", formData).then((res) => {
+        return res.data;
+      });
+      return response;
+    },
+    audioSummarize: async (whisperResult) => {
+      const body = {
+        source_text: whisperResult,
+      };
+      const response = await axiosInstance
+        .post("api/summary/text/", body)
+        .then((res) => {
           return res.data;
         });
-        return response;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    audioSummarize: async (file) => {
-      try {
-        const response = await axiosInstance
-          .post("api/summary/text/", file)
-          .then((res) => {
-            console.log(res);
-            return res.data;
-          });
-        return response;
-      } catch (error) {
-        console.log(error);
-      }
+      return response;
     },
   };
 };
