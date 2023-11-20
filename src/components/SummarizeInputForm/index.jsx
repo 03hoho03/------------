@@ -5,17 +5,17 @@ import { escapeRegExp } from "../../utils/function/getPattern";
 import Button from "../../common/button";
 import Form from "../../common/form";
 
-const YouTubeSumForm = styled(Form)`
-  margin-bottom: 24px;
-`;
+const YouTubeSumForm = styled(Form)``;
 const InputWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
   width: 100%;
   max-width: 700px;
   padding: 8px 12px;
+  margin-bottom: 24px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  justify-content: space-between;
+
   &:focus-within {
     border-color: black;
   }
