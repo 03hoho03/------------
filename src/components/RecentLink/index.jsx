@@ -21,10 +21,12 @@ const linkType = [
 
 const RecentLink = ({ filter }) => {
   const [linkInfo, setLinkInfo] = useState({});
+
   useEffect(() => {
-    const filtered = linkType.filter((item) => item.type === filter);
-    setLinkInfo(filtered[0]);
-  }, []);
+    const filtered = linkType.find((item) => item.type === filter);
+    setLinkInfo(filtered);
+  }, [filter]);
+
   return <StyledLink to={linkInfo.path}>{linkInfo.message}</StyledLink>;
 };
 
