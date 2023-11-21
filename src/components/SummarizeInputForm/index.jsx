@@ -65,7 +65,7 @@ const SummarizeInputForm = ({
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <SubmitBtn disabled={isFetching} isfetching={isFetching}>
+        <SubmitBtn disabled={isFetching}>
           {isFetching ? <LoaderComponent /> : "Summarize"}
         </SubmitBtn>
       </InputWrapper>
