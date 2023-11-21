@@ -22,7 +22,7 @@ const InputWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: 120px 24px 24px;
+  margin: 120px 0 24px;
 `;
 const ResultWrapper = styled.div`
   display: flex;
