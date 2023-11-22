@@ -13,7 +13,7 @@ const useSummaryService = () => {
             url,
           },
           {
-            timeout: 50000,
+            timeout: 100000,
           }
         )
         .then((res) => res.data);
